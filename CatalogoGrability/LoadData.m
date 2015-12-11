@@ -10,13 +10,16 @@
 #import "LoadData.h"
 #import "MainIpadCVC.h"
 #import "MainIphoneVC.h"
+
 #import "Reachability.h"
 #import "AppDelegate.h"
-
 #import "LoadModels.h"
+
 #import "COCategory.h"
 #import "COSubcategory.h"
 #import "COElement.h"
+
+#import "Utilities.h"
 
 #define KEY_CATEGORIA @"feed"
 #define KEY_ELEMENTS @"entry"
@@ -62,7 +65,8 @@
     Reachability *accesible = [Reachability reachabilityForInternetConnection];
     NetworkStatus remoteHostStatus = [accesible currentReachabilityStatus];
     if (remoteHostStatus == NotReachable) {
-        // not reachable
+        [Utilities showAlertWithTitle:@"Alerta" andMessage:@"Sin conexión a internet"];
+        
     } else {
         
         //Descarga JSON
@@ -77,16 +81,16 @@
         //Save data in model
         [self saveData:dicJson];
         
-        //Enviar respuesta al hilo principal
-        if ([self.operation isEqualToString:@"updateCVC"]) {
-            [self performSelectorOnMainThread:@selector(updateCVCWithData) withObject:nil waitUntilDone:YES];
-        }
-        else{
-            [self performSelectorOnMainThread:@selector(updateTVCWithData) withObject:nil waitUntilDone:YES];
-        }
+        
     }
     
-    
+    //Enviar respuesta al hilo principal
+    if ([self.operation isEqualToString:@"updateCVC"]) {
+        [self performSelectorOnMainThread:@selector(updateCVCWithData) withObject:nil waitUntilDone:YES];
+    }
+    else{
+        [self performSelectorOnMainThread:@selector(updateTVCWithData) withObject:nil waitUntilDone:YES];
+    }
     
     
     

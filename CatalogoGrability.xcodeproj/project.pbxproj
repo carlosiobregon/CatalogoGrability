@@ -10,6 +10,7 @@
 		D25B28A61C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png in Resources */ = {isa = PBXBuildFile; fileRef = D25B28A51C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png */; };
 		D25B78FD1C1B56CB00E598B4 /* SubcategoriasCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */; };
 		D25B79001C1B607300E598B4 /* ElementsCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B78FF1C1B607300E598B4 /* ElementsCVC.m */; };
+		D25B79031C1B6A4000E598B4 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B79021C1B6A4000E598B4 /* Utilities.m */; };
 		D25B952D1C17F89E008105B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B952C1C17F89E008105B2 /* AppDelegate.m */; };
 		D25B95371C1805D1008105B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25B95361C1805D0008105B2 /* SystemConfiguration.framework */; };
 		D25B953E1C18087D008105B2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B953D1C18087D008105B2 /* Reachability.m */; };
@@ -60,6 +61,8 @@
 		D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoriasCVC.m; sourceTree = "<group>"; };
 		D25B78FE1C1B607300E598B4 /* ElementsCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementsCVC.h; sourceTree = "<group>"; };
 		D25B78FF1C1B607300E598B4 /* ElementsCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementsCVC.m; sourceTree = "<group>"; };
+		D25B79011C1B6A4000E598B4 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		D25B79021C1B6A4000E598B4 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		D25B952B1C17F89E008105B2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D25B952C1C17F89E008105B2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D25B95341C180183008105B2 /* CatalogoGrability-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CatalogoGrability-Prefix.pch"; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 			children = (
 				D2BBA7381C10F7DF00A2736F /* LoadData.h */,
 				D2BBA7391C10F7DF00A2736F /* LoadData.m */,
+				D25B79011C1B6A4000E598B4 /* Utilities.h */,
+				D25B79021C1B6A4000E598B4 /* Utilities.m */,
 				D28980801C1AB2D100E6AAED /* LoadModels.h */,
 				D28980811C1AB2D100E6AAED /* LoadModels.m */,
 			);
@@ -433,6 +438,7 @@
 				D26130D51C16254300EBE017 /* COSubcategory+CoreDataProperties.m in Sources */,
 				D25BB5C41C10AE4D007F135C /* AGTColors.m in Sources */,
 				D25B79001C1B607300E598B4 /* ElementsCVC.m in Sources */,
+				D25B79031C1B6A4000E598B4 /* Utilities.m in Sources */,
 				D25B952D1C17F89E008105B2 /* AppDelegate.m in Sources */,
 				D26130DA1C16254300EBE017 /* COElement.m in Sources */,
 				D2BBA7321C10C05000A2736F /* CustomNavigationController.m in Sources */,
