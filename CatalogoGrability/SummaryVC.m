@@ -38,14 +38,26 @@
     int positionWidth = (self.view.frame.size.width);
     int positionHeigth = (self.view.frame.size.height);
     
-    CGRect lblTitle = CGRectMake(1, 70, positionHeigth , 19);
+    UIDevice *device = [UIDevice currentDevice];
+    
+    
+    CGRect lblTitle, textViewFrame;
+    if ([[device model] isEqualToString:DEVICE_IPAD]) {
+        lblTitle = CGRectMake(1, 70, positionWidth , 20);
+        textViewFrame = CGRectMake(1, 90, positionWidth, positionHeigth - 2);
+    }
+    else{
+        lblTitle = CGRectMake(1, 70, positionHeigth , 19);
+        textViewFrame = CGRectMake(1, 90, positionHeigth, positionWidth - 2);
+    }
+    
     UILabel *lblt = [[UILabel alloc] initWithFrame:lblTitle];
     lblt.textColor = [UIColor blackColor];
     lblt.text = @"Resumen";
     lblt.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:lblt];
     
-    CGRect textViewFrame = CGRectMake(1, 90, positionHeigth, positionWidth - 2);
+    
     UITextView *textView = [[UITextView alloc] initWithFrame:textViewFrame];
     textView.backgroundColor = [UIColor whiteColor];
     NSString *summary = [NSString stringWithFormat:(@"%@"),self.element.summary];

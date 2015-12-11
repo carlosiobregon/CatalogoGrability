@@ -7,8 +7,7 @@
 //
 
 #import "MainIpadCVC.h"
-#import "AGTColors.h"
-
+#import "SubcategoriasCVC.h"
 #import "LoadData.h"
 #import "LoadModels.h"
 #import "COCategory.h"
@@ -18,27 +17,17 @@
 @interface MainIpadCVC ()
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) NSArray *modelCat;
-@property (nonatomic, strong) AGTColors *model;
-+(NSUInteger) maxRandomColorsToDisplay;
-+(NSString *) randomColorCellId;
 @end
 
 @implementation MainIpadCVC
 
 #pragma mark - Class methods
-+(NSUInteger) maxRandomColorsToDisplay{
-    return 104;
-}
-+(NSString *) randomColorCellId{
-    return @"randomColor";
-}
+static NSString * const reuseIdentifier = @"CellCategory";
 
 #pragma mark - Init
--(id) initWithModel:(AGTColors *) colors
-             layout:(UICollectionViewLayout *) layout{
+-(id)initWithCollectionViewLayout:(UICollectionViewFlowLayout*)layout{
     
     if (self = [super initWithCollectionViewLayout:layout]) {
-        _model = colors;
         self.title = TITLE_VIEW;
         _queue = [[NSOperationQueue alloc] init];
     }
@@ -52,13 +41,13 @@
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    [self registerRandomColorCell];
+    [self registerCell];
     
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityIndicator.color = [UIColor redColor];
     self.activityIndicator.hidesWhenStopped = YES;
     [self.activityIndicator startAnimating];
-    [self.view addSubview:self.activityIndicator];
+    [self.collectionView addSubview:self.activityIndicator];
     
     LoadData *obtainData = [[LoadData alloc] initWithCollectionViewController:self];
     [self.queue addOperation:obtainData];
@@ -67,10 +56,10 @@
 }
 
 
--(void)registerRandomColorCell{
+-(void)registerCell{
     
     [self.collectionView registerClass:[UICollectionViewCell class]
-            forCellWithReuseIdentifier:[MainIpadVC randomColorCellId]];
+            forCellWithReuseIdentifier: reuseIdentifier];
 }
 
 #pragma mark - Load Model
@@ -97,24 +86,46 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
                 cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MainIpadCVC randomColorCellId] forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+                                                                           forIndexPath:indexPath];
     
-    cell.backgroundColor = [self.model randomColor];
+    COCategory *categoria = [self.modelCat objectAtIndex:indexPath.row];
     
-    CGRect lblTitle = CGRectMake(1, 1, 100 , 100);
-    UILabel *lblt = [[UILabel alloc] initWithFrame:lblTitle];
-    lblt.textColor = [UIColor blackColor];
-    lblt.text = @"Resumen";
-    lblt.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:lblt];
+    CGRect lblFrame = CGRectMake(0, 250, 300 , 50);
+    UILabel *lblName = [[UILabel alloc] initWithFrame:lblFrame];
+    lblName.textColor = [UIColor blackColor];
+    lblName.text = [NSString stringWithFormat:@"%@ (%lu)", categoria.name, categoria.subcategories.count];
+    lblName.textAlignment = NSTextAlignmentCenter;
+    [cell addSubview:lblName];
     
-    [cell addSubview:lblt];
+    CGRect iconFrame = CGRectMake(50, 50, 200 , 200);
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:iconFrame];
+    icon.image = [UIImage imageWithData:categoria.icon];
+    [cell addSubview:icon];
     
     return cell;
     
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(300, 300);
+}
 
+#pragma mark -  Delegate
+-(void) collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    // Obtener el objeto
+    COCategory *categoria = [self.modelCat objectAtIndex:indexPath.row];
+
+    // Crear el controlador
+    SubcategoriasCVC *subcategorias = [[SubcategoriasCVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new] nameCategory:categoria.name];
+
+    // Hacer un push
+    [self.navigationController pushViewController:subcategorias animated:YES];
+
+}
 
 #pragma mark - Memory management
 - (void)didReceiveMemoryWarning

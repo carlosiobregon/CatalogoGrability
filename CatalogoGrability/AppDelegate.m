@@ -37,7 +37,7 @@
     UIDevice *device = [UIDevice currentDevice];
     
     if ([[device model] isEqualToString:DEVICE_IPAD]) {
-        MainIpadCVC *mainCVC = [[MainIpadCVC alloc] initWithModel:[AGTColors new] layout:[UICollectionViewFlowLayout new]];
+        MainIpadCVC *mainCVC = [[MainIpadCVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
         navCustomController = [[CustomNavigationController alloc] initWithRootViewController:mainCVC];
     }
     else if([[device model] isEqualToString:DEVICE_IPHONE])

@@ -12,9 +12,6 @@
 
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
-
--(id) initWithModel:(AGTColors *) colors
-             layout:(UICollectionViewLayout *) layout;
 -(void)loadModel;
 
 @end
