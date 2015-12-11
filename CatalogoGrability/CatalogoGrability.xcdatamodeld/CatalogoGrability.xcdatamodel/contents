@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Category" representedClassName="COCategory" syncable="YES">
+        <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="subcategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subcategory" inverseName="category" inverseEntity="Subcategory" syncable="YES"/>
+    </entity>
+    <entity name="Element" representedClassName="COElement" syncable="YES">
+        <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subcategory" maxCount="1" deletionRule="Nullify" destinationEntity="Subcategory" inverseName="elements" inverseEntity="Subcategory" syncable="YES"/>
+    </entity>
+    <entity name="Subcategory" representedClassName="COSubcategory" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="subcategories" inverseEntity="Category" syncable="YES"/>
+        <relationship name="elements" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Element" inverseName="subcategory" inverseEntity="Element" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="-488" positionY="-12" width="128" height="90"/>
+        <element name="Element" positionX="-117" positionY="-18" width="128" height="105"/>
+        <element name="Subcategory" positionX="-297" positionY="2" width="128" height="90"/>
+    </elements>
+</model>
