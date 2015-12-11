@@ -79,7 +79,12 @@
 
         
         //Save data in model
-        [self saveData:dicJson];
+        if (dicJson != nil) {
+            [self saveData:dicJson];
+        }
+        else{
+            [Utilities showAlertWithTitle:@"Alerta" andMessage:@"Ocurrio un error al cargar datos"];
+        }
         
         
     }

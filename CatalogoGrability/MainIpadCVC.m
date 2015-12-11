@@ -17,6 +17,7 @@
 @interface MainIpadCVC ()
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) NSArray *modelCat;
+@property (nonatomic) BOOL isSync;
 @end
 
 @implementation MainIpadCVC
@@ -30,6 +31,7 @@ static NSString * const reuseIdentifier = @"CellCategory";
     if (self = [super initWithCollectionViewLayout:layout]) {
         self.title = TITLE_VIEW;
         _queue = [[NSOperationQueue alloc] init];
+        _isSync = NO;
     }
     return self;
 }
@@ -41,16 +43,44 @@ static NSString * const reuseIdentifier = @"CellCategory";
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
+    UIImage *image = [UIImage imageNamed:@"syncicon"];
+    
+    @try{
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    @catch (NSException *exception){
+    }
+    
+    UIBarButtonItem *syncBtnItem = [[UIBarButtonItem alloc] initWithImage:image
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(synchronizeData)];
+    
+    self.navigationItem.rightBarButtonItem = syncBtnItem;
+    
+    [self synchronizeData];
     [self registerCell];
     
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.color = [UIColor redColor];
-    self.activityIndicator.hidesWhenStopped = YES;
-    [self.activityIndicator startAnimating];
-    [self.collectionView addSubview:self.activityIndicator];
     
-    LoadData *obtainData = [[LoadData alloc] initWithCollectionViewController:self];
-    [self.queue addOperation:obtainData];
+}
+
+- (void)synchronizeData{
+    
+    if (!self.isSync) {
+        int positionWidth = (self.view.frame.size.width)/2;
+        int positionHeigth = (self.view.frame.size.height)/2;
+        
+        
+        self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        self.activityIndicator.frame = CGRectMake(positionWidth - 40, positionHeigth - 40, 80 , 80);
+        self.activityIndicator.color = [UIColor redColor];
+        self.activityIndicator.hidesWhenStopped = YES;
+        [self.activityIndicator startAnimating];
+        [self.view addSubview:self.activityIndicator];
+        
+        LoadData *obtainData = [[LoadData alloc] initWithCollectionViewController:self];
+        [self.queue addOperation:obtainData];
+    }
     
     
 }
@@ -67,8 +97,9 @@ static NSString * const reuseIdentifier = @"CellCategory";
     
     LoadModels *modelCat = [[LoadModels alloc] init];
     self.modelCat = [modelCat loadCategories];
-    [self.activityIndicator stopAnimating];
     [self.collectionView reloadData];
+    [self.activityIndicator stopAnimating];
+    self.isSync = YES;
     
 }
 
@@ -94,7 +125,7 @@ static NSString * const reuseIdentifier = @"CellCategory";
     CGRect lblFrame = CGRectMake(0, 250, 300 , 50);
     UILabel *lblName = [[UILabel alloc] initWithFrame:lblFrame];
     lblName.textColor = [UIColor blackColor];
-    lblName.text = [NSString stringWithFormat:@"%@ (%lu)", categoria.name, categoria.subcategories.count];
+    lblName.text = [NSString stringWithFormat:@"%@ (%u)", categoria.name, categoria.subcategories.count];
     lblName.textAlignment = NSTextAlignmentCenter;
     [cell addSubview:lblName];
     

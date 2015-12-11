@@ -76,7 +76,7 @@ static NSString * const reuseIdentifier = @"CellSubcategory";
     CGRect lblFrame = CGRectMake(0, 80, 200 , 40);
     UILabel *lblName = [[UILabel alloc] initWithFrame:lblFrame];
     lblName.textColor = [UIColor blackColor];
-    lblName.text = [NSString stringWithFormat:@"%@ (%lu)", subcategoria.name, subcategoria.elements.count];
+    lblName.text = [NSString stringWithFormat:@"%@ (%u)", subcategoria.name, subcategoria.elements.count];
     lblName.textAlignment = NSTextAlignmentCenter;
     [cell addSubview:lblName];
     

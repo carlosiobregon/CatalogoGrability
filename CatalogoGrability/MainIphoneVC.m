@@ -37,14 +37,23 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.color = [UIColor redColor];
-    self.activityIndicator.hidesWhenStopped = YES;
-    [self.activityIndicator startAnimating];
-    [self.view addSubview:self.activityIndicator];
+    UIImage *image = [UIImage imageNamed:@"syncicon"];
     
-    LoadData *obtainData = [[LoadData alloc] initWithTableViewController:self];
-    [self.queue addOperation:obtainData];
+    @try{
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    @catch (NSException *exception){
+    }
+    
+    UIBarButtonItem *syncBtnItem = [[UIBarButtonItem alloc] initWithImage:image
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(synchronizeData)];
+
+    self.navigationItem.rightBarButtonItem = syncBtnItem;
+    
+    [self synchronizeData];
+    
 }
 
 
@@ -55,6 +64,24 @@
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 }
+
+- (void)synchronizeData{
+    
+    int positionWidth = (self.view.frame.size.width)/2;
+    int positionHeigth = (self.view.frame.size.height)/2;
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.frame = CGRectMake(positionWidth - 40, positionHeigth - 40, 80 , 80);
+    self.activityIndicator.color = [UIColor redColor];
+    self.activityIndicator.hidesWhenStopped = YES;
+    [self.activityIndicator startAnimating];
+    [self.view addSubview:self.activityIndicator];
+    
+    LoadData *obtainData = [[LoadData alloc] initWithTableViewController:self];
+    [self.queue addOperation:obtainData];
+    
+}
+
 
 
 #pragma mark - Load Model
