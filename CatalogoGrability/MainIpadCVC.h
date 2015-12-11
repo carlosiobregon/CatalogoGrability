@@ -12,6 +12,6 @@
 
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
--(void)loadModel;
+-(void)syncModel;
 
 @end

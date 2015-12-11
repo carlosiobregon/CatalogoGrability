@@ -29,22 +29,31 @@ static NSString * const reuseIdentifier = @"CellCategory";
 -(id)initWithCollectionViewLayout:(UICollectionViewFlowLayout*)layout{
     
     if (self = [super initWithCollectionViewLayout:layout]) {
-        self.title = TITLE_VIEW;
         _queue = [[NSOperationQueue alloc] init];
+        self.title = TITLE_VIEW;
         _isSync = NO;
     }
     return self;
 }
 
+
+#pragma mark - Load Model
+-(void)loadModel{
+    
+    LoadModels *modelCat = [[LoadModels alloc] init];
+    self.modelCat = [modelCat loadCategories];
+    
+}
+
+
 #pragma mark - View lifecycle
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
+    [self registerCell];
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
     UIImage *image = [UIImage imageNamed:@"syncicon"];
-    
     @try{
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
@@ -58,10 +67,28 @@ static NSString * const reuseIdentifier = @"CellCategory";
     
     self.navigationItem.rightBarButtonItem = syncBtnItem;
     
-    [self synchronizeData];
-    [self registerCell];
+    if (self.modelCat == nil) {
+        [self synchronizeData];
+    }
     
+}
+
+-(void)registerCell{
     
+    [self.collectionView registerClass:[UICollectionViewCell class]
+            forCellWithReuseIdentifier: reuseIdentifier];
+}
+
+
+#pragma mark - Sync Data
+- (void)syncModel{
+    
+    [self loadModel];
+    
+    [self.collectionView reloadData];
+    [self.activityIndicator stopAnimating];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.isSync = NO;
 }
 
 - (void)synchronizeData{
@@ -88,24 +115,6 @@ static NSString * const reuseIdentifier = @"CellCategory";
 }
 
 
--(void)registerCell{
-    
-    [self.collectionView registerClass:[UICollectionViewCell class]
-            forCellWithReuseIdentifier: reuseIdentifier];
-}
-
-#pragma mark - Load Model
--(void)loadModel{
-    
-    LoadModels *modelCat = [[LoadModels alloc] init];
-    self.modelCat = [modelCat loadCategories];
-    [self.collectionView reloadData];
-    [self.activityIndicator stopAnimating];
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    self.isSync = NO;
-    
-}
-
 #pragma mark - Data Source
 -(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -113,7 +122,6 @@ static NSString * const reuseIdentifier = @"CellCategory";
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
-    
     return [self.modelCat count];
 }
 
@@ -141,10 +149,10 @@ static NSString * const reuseIdentifier = @"CellCategory";
     
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(300, 300);
 }
+
 
 #pragma mark -  Delegate
 -(void) collectionView:(UICollectionView *)collectionView
@@ -165,9 +173,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
 }
 
+
 #pragma mark - Memory management
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

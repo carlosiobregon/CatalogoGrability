@@ -103,7 +103,7 @@
 
 #pragma mark - Response class delegate
 -(void)updateCVCWithData{
-    [self.cvc loadModel];
+    [self.cvc syncModel];
 }
 -(void)updateTVCWithData{
     [self.tvc syncModel];
