@@ -6,7 +6,7 @@
 //  Copyright © 2015 wi-mobile. All rights reserved.
 //
 
-#import "MainIpadVC.h"
+#import "MainIpadCVC.h"
 #import "AGTColors.h"
 
 #import "LoadData.h"
@@ -15,7 +15,7 @@
 
 #define TITLE_VIEW @"Categorias"
 
-@interface MainIpadVC ()
+@interface MainIpadCVC ()
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) NSArray *modelCat;
 @property (nonatomic, strong) AGTColors *model;
@@ -23,7 +23,7 @@
 +(NSString *) randomColorCellId;
 @end
 
-@implementation MainIpadVC
+@implementation MainIpadCVC
 
 #pragma mark - Class methods
 +(NSUInteger) maxRandomColorsToDisplay{
@@ -97,7 +97,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
                 cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MainIpadVC randomColorCellId] forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MainIpadCVC randomColorCellId] forIndexPath:indexPath];
     
     cell.backgroundColor = [self.model randomColor];
     

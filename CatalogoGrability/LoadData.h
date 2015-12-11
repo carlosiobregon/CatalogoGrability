@@ -10,10 +10,10 @@
 
 
 @class MainIphoneVC;
-@class MainIpadVC;
+@class MainIpadCVC;
 @interface LoadData : NSOperation
 
 -(id) initWithTableViewController:(MainIphoneVC *)tvc;
--(id) initWithCollectionViewController:(MainIpadVC *)cvc;
+-(id) initWithCollectionViewController:(MainIpadCVC *)cvc;
 
 @end

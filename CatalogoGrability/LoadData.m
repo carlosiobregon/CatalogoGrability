@@ -8,7 +8,7 @@
 
 
 #import "LoadData.h"
-#import "MainIpadVC.h"
+#import "MainIpadCVC.h"
 #import "MainIphoneVC.h"
 #import "Reachability.h"
 #import "AppDelegate.h"
@@ -24,7 +24,7 @@
 
 @interface LoadData()
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) MainIpadVC *cvc;
+@property (nonatomic, strong) MainIpadCVC *cvc;
 @property (nonatomic, strong) MainIphoneVC *tvc;
 @property (nonatomic, strong) NSString *operation;
 @end
@@ -41,7 +41,7 @@
     }
     return self;
 }
--(id) initWithCollectionViewController:(MainIpadVC *)cvc{
+-(id) initWithCollectionViewController:(MainIpadCVC *)cvc{
     if (self = [super init]) {
         _cvc = cvc;
         _operation = @"updateCVC";

@@ -6,17 +6,15 @@
 //  Copyright © 2015 wi-mobile. All rights reserved.
 //
 
-@import UIKit;
+
 @class AGTColors;
+@interface MainIpadCVC : UICollectionViewController
 
-@interface MainIpadVC : UICollectionViewController
 
-@property (nonatomic, strong) NSDictionary *dicJSON;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
 -(id) initWithModel:(AGTColors *) colors
              layout:(UICollectionViewLayout *) layout;
-
-@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 -(void)loadModel;
 
 @end

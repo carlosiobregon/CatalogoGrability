@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AGTColors.h"
-#import "MainIpadVC.h"
+#import "MainIpadCVC.h"
 #import "MainIphoneVC.h"
 #import "COCoreDataStack.h"
 #import "CustomNavigationController.h"
@@ -37,7 +37,7 @@
     UIDevice *device = [UIDevice currentDevice];
     
     if ([[device model] isEqualToString:DEVICE_IPAD]) {
-        MainIpadVC *mainCVC = [[MainIpadVC alloc] initWithModel:[AGTColors new] layout:[UICollectionViewFlowLayout new]];
+        MainIpadCVC *mainCVC = [[MainIpadCVC alloc] initWithModel:[AGTColors new] layout:[UICollectionViewFlowLayout new]];
         navCustomController = [[CustomNavigationController alloc] initWithRootViewController:mainCVC];
     }
     else if([[device model] isEqualToString:DEVICE_IPHONE])

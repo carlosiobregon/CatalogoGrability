@@ -12,7 +12,7 @@
 		D25B95371C1805D1008105B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25B95361C1805D0008105B2 /* SystemConfiguration.framework */; };
 		D25B953E1C18087D008105B2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B953D1C18087D008105B2 /* Reachability.m */; };
 		D25BB5B71C108DDC007F135C /* COCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D25BB5B61C108DDC007F135C /* COCoreDataStack.m */; };
-		D25BB5BD1C10989E007F135C /* MainIpadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25BB5BC1C10989E007F135C /* MainIpadVC.m */; };
+		D25BB5BD1C10989E007F135C /* MainIpadCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25BB5BC1C10989E007F135C /* MainIpadCVC.m */; };
 		D25BB5C01C1098C1007F135C /* MainIphoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25BB5BF1C1098C1007F135C /* MainIphoneVC.m */; };
 		D25BB5C41C10AE4D007F135C /* AGTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = D25BB5C31C10AE4D007F135C /* AGTColors.m */; };
 		D26130D51C16254300EBE017 /* COSubcategory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D26130CA1C16254300EBE017 /* COSubcategory+CoreDataProperties.m */; };
@@ -63,8 +63,8 @@
 		D25B953D1C18087D008105B2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D25BB5B51C108DDC007F135C /* COCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COCoreDataStack.h; sourceTree = "<group>"; };
 		D25BB5B61C108DDC007F135C /* COCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COCoreDataStack.m; sourceTree = "<group>"; };
-		D25BB5BB1C10989E007F135C /* MainIpadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainIpadVC.h; sourceTree = "<group>"; };
-		D25BB5BC1C10989E007F135C /* MainIpadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainIpadVC.m; sourceTree = "<group>"; };
+		D25BB5BB1C10989E007F135C /* MainIpadCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainIpadCVC.h; sourceTree = "<group>"; };
+		D25BB5BC1C10989E007F135C /* MainIpadCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainIpadCVC.m; sourceTree = "<group>"; };
 		D25BB5BE1C1098C1007F135C /* MainIphoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainIphoneVC.h; sourceTree = "<group>"; };
 		D25BB5BF1C1098C1007F135C /* MainIphoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainIphoneVC.m; sourceTree = "<group>"; };
 		D25BB5C21C10AE4D007F135C /* AGTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTColors.h; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 		D2BCC8451C0FECA400C7EB78 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D25BB5BB1C10989E007F135C /* MainIpadVC.h */,
-				D25BB5BC1C10989E007F135C /* MainIpadVC.m */,
+				D25BB5BB1C10989E007F135C /* MainIpadCVC.h */,
+				D25BB5BC1C10989E007F135C /* MainIpadCVC.m */,
 				D25BB5BE1C1098C1007F135C /* MainIphoneVC.h */,
 				D25BB5BF1C1098C1007F135C /* MainIphoneVC.m */,
 				D289807D1C1AAE2300E6AAED /* SubcategoriasTVC.h */,
@@ -436,7 +436,7 @@
 				D2A2E41F1C07F52800BC109C /* CatalogoGrability.xcdatamodeld in Sources */,
 				D25BB5C01C1098C1007F135C /* MainIphoneVC.m in Sources */,
 				D26130D91C16254300EBE017 /* COElement+CoreDataProperties.m in Sources */,
-				D25BB5BD1C10989E007F135C /* MainIpadVC.m in Sources */,
+				D25BB5BD1C10989E007F135C /* MainIpadCVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
