@@ -79,7 +79,7 @@
     tag1 = [[UILabel alloc] init];
     tag1.font = [UIFont fontWithName:@"Helvetica-Regular" size:18];
     tag1.textColor = [UIColor blackColor];
-    tag1.frame = CGRectMake(72, 26, (self.tableView.frame.size.width), 18.0);
+    tag1.frame = CGRectMake(80, 31, (self.tableView.frame.size.width), 18.0);
     [itemCell.contentView addSubview:tag1];
     
     COElement *element = [self.modelElements objectAtIndex:indexPath.row];
@@ -91,7 +91,7 @@
     tag1.text = [NSString stringWithFormat:@"%@", [element name]];
     iconDoc = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[element icon]]];
     
-    iconDoc.frame = CGRectMake(1, 1, 70, 70);
+    iconDoc.frame = CGRectMake(5, 5, 70, 70);
     [itemCell.contentView addSubview:iconDoc];
     
     return itemCell;
@@ -99,7 +99,7 @@
 
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    return 80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 1;

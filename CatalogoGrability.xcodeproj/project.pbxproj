@@ -144,13 +144,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D25B79061C1B7A8700E598B4 /* Imgs */ = {
+			isa = PBXGroup;
+			children = (
+				D25B79041C1B6E5100E598B4 /* syncicon.png */,
+				D25B28A51C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png */,
+			);
+			name = Imgs;
+			sourceTree = "<group>";
+		};
+		D25B79071C1B7CC300E598B4 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				D25BB5BE1C1098C1007F135C /* MainIphoneVC.h */,
+				D25BB5BF1C1098C1007F135C /* MainIphoneVC.m */,
+				D289807D1C1AAE2300E6AAED /* SubcategoriasTVC.h */,
+				D289807E1C1AAE2300E6AAED /* SubcategoriasTVC.m */,
+				D28980831C1ABFE500E6AAED /* ElementosTVC.h */,
+				D28980841C1ABFE500E6AAED /* ElementosTVC.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		D25B79081C1B7CDD00E598B4 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				D25BB5BB1C10989E007F135C /* MainIpadCVC.h */,
+				D25BB5BC1C10989E007F135C /* MainIpadCVC.m */,
+				D25B78FB1C1B56CB00E598B4 /* SubcategoriasCVC.h */,
+				D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */,
+				D25B78FE1C1B607300E598B4 /* ElementsCVC.h */,
+				D25B78FF1C1B607300E598B4 /* ElementsCVC.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		D25B79091C1B7E9F00E598B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D25B953C1C18087D008105B2 /* Reachability.h */,
+				D25B953D1C18087D008105B2 /* Reachability.m */,
+				D25B79011C1B6A4000E598B4 /* Utilities.h */,
+				D25B79021C1B6A4000E598B4 /* Utilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		D25B952E1C17F8E8008105B2 /* DelegateClasses */ = {
 			isa = PBXGroup;
 			children = (
 				D2BBA7381C10F7DF00A2736F /* LoadData.h */,
 				D2BBA7391C10F7DF00A2736F /* LoadData.m */,
-				D25B79011C1B6A4000E598B4 /* Utilities.h */,
-				D25B79021C1B6A4000E598B4 /* Utilities.m */,
 				D28980801C1AB2D100E6AAED /* LoadModels.h */,
 				D28980811C1AB2D100E6AAED /* LoadModels.m */,
 			);
@@ -198,14 +242,15 @@
 		D2A2E4101C07F52800BC109C /* CatalogoGrability */ = {
 			isa = PBXGroup;
 			children = (
-				D2BCC8441C0FEC9900C7EB78 /* Model */,
+				D2BCC8441C0FEC9900C7EB78 /* Models */,
+				D2BCC8431C0FEC8200C7EB78 /* Views */,
+				D2BCC8451C0FECA400C7EB78 /* Controllers */,
+				D25B952E1C17F8E8008105B2 /* DelegateClasses */,
+				D25B79091C1B7E9F00E598B4 /* Utilities */,
+				D2BBA7371C10F77500A2736F /* CustomClasses */,
 				D25B952B1C17F89E008105B2 /* AppDelegate.h */,
 				D25B952C1C17F89E008105B2 /* AppDelegate.m */,
-				D2BCC8431C0FEC8200C7EB78 /* View */,
-				D2BCC8451C0FECA400C7EB78 /* ViewControllers */,
-				D2BBA7371C10F77500A2736F /* CustomClasses */,
 				D2A2E4111C07F52800BC109C /* Supporting Files */,
-				D25B952E1C17F8E8008105B2 /* DelegateClasses */,
 			);
 			path = CatalogoGrability;
 			sourceTree = "<group>";
@@ -213,8 +258,7 @@
 		D2A2E4111C07F52800BC109C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D25B79041C1B6E5100E598B4 /* syncicon.png */,
-				D25B28A51C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png */,
+				D25B79061C1B7A8700E598B4 /* Imgs */,
 				D2A2E4201C07F52800BC109C /* Assets.xcassets */,
 				D2A2E4251C07F52800BC109C /* Info.plist */,
 				D2A2E4121C07F52800BC109C /* main.m */,
@@ -245,8 +289,6 @@
 		D2BBA7371C10F77500A2736F /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
-				D25B953C1C18087D008105B2 /* Reachability.h */,
-				D25B953D1C18087D008105B2 /* Reachability.m */,
 				D25BB5C21C10AE4D007F135C /* AGTColors.h */,
 				D25BB5C31C10AE4D007F135C /* AGTColors.m */,
 				D2BBA7301C10C05000A2736F /* CustomNavigationController.h */,
@@ -255,15 +297,15 @@
 			name = CustomClasses;
 			sourceTree = "<group>";
 		};
-		D2BCC8431C0FEC8200C7EB78 /* View */ = {
+		D2BCC8431C0FEC8200C7EB78 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D2A2E4221C07F52800BC109C /* LaunchScreen.storyboard */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		D2BCC8441C0FEC9900C7EB78 /* Model */ = {
+		D2BCC8441C0FEC9900C7EB78 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D25BB5B81C108DE4007F135C /* CoreDataStack */,
@@ -281,28 +323,18 @@
 				D26130D31C16254300EBE017 /* COElement.h */,
 				D26130D41C16254300EBE017 /* COElement.m */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
-		D2BCC8451C0FECA400C7EB78 /* ViewControllers */ = {
+		D2BCC8451C0FECA400C7EB78 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D25BB5BB1C10989E007F135C /* MainIpadCVC.h */,
-				D25BB5BC1C10989E007F135C /* MainIpadCVC.m */,
-				D25B78FB1C1B56CB00E598B4 /* SubcategoriasCVC.h */,
-				D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */,
-				D25B78FE1C1B607300E598B4 /* ElementsCVC.h */,
-				D25B78FF1C1B607300E598B4 /* ElementsCVC.m */,
-				D25BB5BE1C1098C1007F135C /* MainIphoneVC.h */,
-				D25BB5BF1C1098C1007F135C /* MainIphoneVC.m */,
-				D289807D1C1AAE2300E6AAED /* SubcategoriasTVC.h */,
-				D289807E1C1AAE2300E6AAED /* SubcategoriasTVC.m */,
-				D28980831C1ABFE500E6AAED /* ElementosTVC.h */,
-				D28980841C1ABFE500E6AAED /* ElementosTVC.m */,
+				D25B79081C1B7CDD00E598B4 /* iPad */,
+				D25B79071C1B7CC300E598B4 /* iPhone */,
 				D2BC34E61C1ACEE6007B3C4E /* SummaryVC.h */,
 				D2BC34E71C1ACEE6007B3C4E /* SummaryVC.m */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

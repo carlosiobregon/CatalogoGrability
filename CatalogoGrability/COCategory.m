@@ -53,7 +53,7 @@
 +(instancetype)categoriaAlreadyExists:(NSString *)nameCategoria
                                  context:(NSManagedObjectContext*)context{
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Subcategory"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
     
     NSPredicate *predicate;
     

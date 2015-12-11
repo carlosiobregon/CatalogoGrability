@@ -106,7 +106,7 @@
     [self.cvc loadModel];
 }
 -(void)updateTVCWithData{
-    [self.tvc loadModel];
+    [self.tvc syncModel];
 }
 
 #pragma mark - Save data in model
@@ -150,7 +150,11 @@
             NSString *urlIcon = [[[element objectForKey:@"im:image"] objectAtIndex:0] objectForKey:@"label"];
             NSString *summary = [[element objectForKey:@"summary"] objectForKey:@"label"];
             
-            [self saveElements:nameElement summary:summary urlIcon:urlIcon subcategory:subcategoria];
+            
+            if (![COElement elementAlreadyExists:nameElement context:self.context]) {
+                [self saveElements:nameElement summary:summary urlIcon:urlIcon subcategory:subcategoria];
+            }
+            
         }];
     }];
     

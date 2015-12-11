@@ -80,6 +80,8 @@ static NSString * const reuseIdentifier = @"CellCategory";
         
         LoadData *obtainData = [[LoadData alloc] initWithCollectionViewController:self];
         [self.queue addOperation:obtainData];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.isSync = YES;
     }
     
     
@@ -99,7 +101,8 @@ static NSString * const reuseIdentifier = @"CellCategory";
     self.modelCat = [modelCat loadCategories];
     [self.collectionView reloadData];
     [self.activityIndicator stopAnimating];
-    self.isSync = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.isSync = NO;
     
 }
 
@@ -146,15 +149,19 @@ static NSString * const reuseIdentifier = @"CellCategory";
 #pragma mark -  Delegate
 -(void) collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    // Obtener el objeto
-    COCategory *categoria = [self.modelCat objectAtIndex:indexPath.row];
-
-    // Crear el controlador
-    SubcategoriasCVC *subcategorias = [[SubcategoriasCVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new] nameCategory:categoria.name];
-
-    // Hacer un push
-    [self.navigationController pushViewController:subcategorias animated:YES];
+    
+    
+    if (!self.isSync) {
+        // Obtener el objeto
+        COCategory *categoria = [self.modelCat objectAtIndex:indexPath.row];
+        
+        // Crear el controlador
+        SubcategoriasCVC *subcategorias = [[SubcategoriasCVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new] nameCategory:categoria.name];
+        
+        // Hacer un push
+        [self.navigationController pushViewController:subcategorias animated:YES];
+    }
+    
 
 }
 

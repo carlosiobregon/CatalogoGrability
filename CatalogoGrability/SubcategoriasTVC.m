@@ -68,6 +68,7 @@
         tag1.font = [UIFont fontWithName:@"Helvetica-Regular" size:18];
         tag1.textColor = [UIColor blackColor];
         tag1.frame = CGRectMake(12, 26, (self.tableView.frame.size.width), 18.0);
+        tag1.tag = VALUE1_LABEL_TAG;
     }
     else{
         tag1 = (UILabel *)[itemCell.contentView viewWithTag:VALUE1_LABEL_TAG];
@@ -89,7 +90,7 @@
 
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    return 80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 1;
