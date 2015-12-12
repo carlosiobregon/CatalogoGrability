@@ -77,17 +77,18 @@ static NSString * const reuseIdentifier = @"Cell";
                                                                            forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
     COElement *element = [self.modelElements objectAtIndex:indexPath.row];
     
-    CGRect lblFrame = CGRectMake(0, 250, 300 , 50);
+    CGRect lblFrame = CGRectMake(0, 175, 200 , 25);
     UILabel *lblName = [[UILabel alloc] initWithFrame:lblFrame];
     lblName.textColor = [UIColor blackColor];
     lblName.text = [NSString stringWithFormat:@"%@", element.name];
     lblName.textAlignment = NSTextAlignmentCenter;
     [cell addSubview:lblName];
     
-    CGRect iconFrame = CGRectMake(30, 30, 200 , 200);
+    CGRect iconFrame = CGRectMake(28, 17, 143 , 143);
     UIImageView *icon = [[UIImageView alloc] initWithFrame:iconFrame];
     icon.image = [UIImage imageWithData:element.icon];
     [cell addSubview:icon];
@@ -111,9 +112,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
+#pragma mark collection view cell paddings
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(40, 40, 40, 40); // top, left, bottom, right
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(260, 260);
+    return CGSizeMake(200, 200);
 }
 
 @end

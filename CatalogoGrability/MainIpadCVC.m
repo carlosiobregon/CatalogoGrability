@@ -53,6 +53,7 @@ static NSString * const reuseIdentifier = @"CellCategory";
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
+    
     UIImage *image = [UIImage imageNamed:@"syncicon"];
     @try{
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -131,16 +132,18 @@ static NSString * const reuseIdentifier = @"CellCategory";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                            forIndexPath:indexPath];
     
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     COCategory *categoria = [self.modelCat objectAtIndex:indexPath.row];
     
-    CGRect lblFrame = CGRectMake(0, 250, 300 , 50);
+    CGRect lblFrame = CGRectMake(3, 165, 197 , 25);
     UILabel *lblName = [[UILabel alloc] initWithFrame:lblFrame];
     lblName.textColor = [UIColor blackColor];
     lblName.text = [NSString stringWithFormat:@"%@ (%u)", categoria.name, categoria.subcategories.count];
     lblName.textAlignment = NSTextAlignmentCenter;
     [cell addSubview:lblName];
     
-    CGRect iconFrame = CGRectMake(50, 50, 200 , 200);
+    CGRect iconFrame = CGRectMake(15, 20, 170 , 135);
     UIImageView *icon = [[UIImageView alloc] initWithFrame:iconFrame];
     icon.image = [UIImage imageWithData:categoria.icon];
     [cell addSubview:icon];
@@ -150,13 +153,15 @@ static NSString * const reuseIdentifier = @"CellCategory";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(300, 300);
+    return CGSizeMake(200, 200);
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(40, 40, 40, 40); // top, left, bottom, right
+}
 
 #pragma mark -  Delegate
--(void) collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
     if (!self.isSync) {

@@ -70,6 +70,7 @@ static NSString * const reuseIdentifier = @"CellSubcategory";
                                                                            forIndexPath:indexPath];
     
     cell.backgroundColor = [self.colors randomColor];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
     COSubcategory *subcategoria = [self.modelSubCat objectAtIndex:indexPath.row];
     
@@ -88,6 +89,21 @@ static NSString * const reuseIdentifier = @"CellSubcategory";
 {
     return CGSizeMake(200, 200);
 }
+
+#pragma mark collection view cell layout / size
+//- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    return [self getCellSize:indexPath];  // will be w120xh100 or w190x100
+//    // if the width is higher, only one image will be shown in a line
+//}
+
+#pragma mark collection view cell paddings
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(40, 40, 40, 40); // top, left, bottom, right
+}
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 5.0;
+//}
 
 #pragma mark -  Delegate
 -(void) collectionView:(UICollectionView *)collectionView

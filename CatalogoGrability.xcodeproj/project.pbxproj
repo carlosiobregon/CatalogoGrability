@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23C476E1C1B98ED00E3F3A1 /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = D23C476D1C1B98ED00E3F3A1 /* photo-frame.png */; };
 		D25B28A61C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png in Resources */ = {isa = PBXBuildFile; fileRef = D25B28A51C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png */; };
 		D25B78FD1C1B56CB00E598B4 /* SubcategoriasCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */; };
 		D25B79001C1B607300E598B4 /* ElementsCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25B78FF1C1B607300E598B4 /* ElementsCVC.m */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D23C476D1C1B98ED00E3F3A1 /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		D25B28A51C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png"; sourceTree = "<group>"; };
 		D25B78FB1C1B56CB00E598B4 /* SubcategoriasCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoriasCVC.h; sourceTree = "<group>"; };
 		D25B78FC1C1B56CB00E598B4 /* SubcategoriasCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoriasCVC.m; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		D2A2E4111C07F52800BC109C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D23C476D1C1B98ED00E3F3A1 /* photo-frame.png */,
 				D25B79061C1B7A8700E598B4 /* Imgs */,
 				D2A2E4201C07F52800BC109C /* Assets.xcassets */,
 				D2A2E4251C07F52800BC109C /* Info.plist */,
@@ -444,6 +447,7 @@
 				D25B79051C1B6E5100E598B4 /* syncicon.png in Resources */,
 				D2A2E4211C07F52800BC109C /* Assets.xcassets in Resources */,
 				D25B28A61C18265C00D1C868 /* Captura de pantalla 2015-12-09 a las 4.05.09 a.m..png in Resources */,
+				D23C476E1C1B98ED00E3F3A1 /* photo-frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
